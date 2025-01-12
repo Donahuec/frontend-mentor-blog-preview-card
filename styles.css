@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("./assets/fonts/Figtree-VariableFont_wght.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --yellow: hsl(47, 88%, 63%);
+  --white: hsl(0, 0%, 100%);
+  --gray500: hsl(0, 0%, 42%);
+  --gray950: hsl(0, 0%, 7%);
+
+  --spacing50: 4px;
+  --spacing100: 8px;
+  --spacing150: 12px;
+  --spacing300: 24px;
+
+  --fontWeightBold: 800;
+
+  /* 12px, 14px, 16px, 20px, 24px*/
+  --fontMin: 0.75rem;
+  --fontSmallMid: 0.875rem;
+  --fontBodyMax: 1rem;
+  --fontLargeMin: 1.25rem;
+  --fontLargeMax: 1.5rem;
+
+  /* Fluid font size calculations generated with https://fluid.style/type */
+  --fontSmall: clamp(var(--fontMin), 0.648rem + 0.455vw, var(--fontSmallMid));
+  --fontBody: clamp(
+    var(--fontSmallMid),
+    0.773rem + 0.455vw,
+    var(--fontBodyMax)
+  );
+  --fontLarge: clamp(var(--fontLargeMin), 1rem + 2.5vw, var(--fontLargeMax));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-size: var(--fontBody);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0px;
+  background-color: var(--yellow);
+}
+
+main {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--white);
+  max-width: 384px;
+  margin: var(--spacing150);
+  padding: var(--spacing300);
+  border-radius: 20px;
+  border: 1px solid var(--gray950);
+  box-shadow: var(--spacing100) var(--spacing100) 0 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing300);
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing150);
+
+    .tag {
+      background-color: var(--yellow);
+      font-size: var(--fontSmall);
+      font-weight: var(--fontWeightBold);
+      width: fit-content;
+      padding: var(--spacing50) var(--spacing150);
+      border-radius: 4px;
+    }
+
+    .title {
+      color: var(--gray950);
+      font-size: var(--fontLarge);
+      font-weight: var(--fontWeightBold);
+      text-decoration: none;
+      &:hover {
+        color: var(--yellow);
+      }
+    }
+
+    .summary {
+      color: var(--gray500);
+    }
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing150);
+    font-size: var(--fontSmall);
+    font-weight: var(--fontWeightBold);
+    img {
+      width: 32px;
+    }
+  }
+}
